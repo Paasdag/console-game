@@ -2,9 +2,11 @@
 import random
 from cfg.cfg import *
 from Armor import *
-from boss import *
+from boss.simple_boss import *
+print(boss_health)
 # vars
 player_health = 20
+player_health_max = 20
 armor_boots = ""
 armor_legs = ""
 armor_chestplate = ""
@@ -50,11 +52,16 @@ while True:
                     take_health = player_health / boss_dmg_calc
                     player_health = player_health - take_health
                     print("the boss has done", take_health, "damage")
-                    print(player_health)
                     player_dmg = random.randint(5,10)
                     player_dmg_calc = player_dmg * sword_dmg_boost
                     print("you have done", player_dmg_calc, " damage to the lvl 1 boss")
+                    if boss_health == 0:
+                        print("You have succsesfully killed the boss")
+                        player_health = player_health_max
+                    if player_health == 0:
+                        print("You have died. Good news you dont lose anything")
+                        player_health = player_health_max
                     
     else: 
-        if default_answer != "armor" or "command":
+        if default_answer != "armor" or "figth":
             print("Not a default answer")
