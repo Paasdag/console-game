@@ -48,10 +48,13 @@ while True:
                     boss_dmg = random.randint(3,5)
                     boss_dmg_calc = boss_dmg / armor_negitive
                     take_health = player_health / boss_dmg_calc
+                    player_health = player_health - take_health
+                    print("the boss has done", take_health, "damage")
                     print(player_health)
                     player_dmg = random.randint(5,10)
                     player_dmg_calc = player_dmg * sword_dmg_boost
-                    print(player_dmg_calc)
+                    print("you have done", player_dmg_calc, " damage to the lvl 1 boss")
+                    
     else: 
         if default_answer != "armor" or "command":
             print("Not a default answer")
