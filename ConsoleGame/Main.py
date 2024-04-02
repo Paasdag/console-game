@@ -1,7 +1,7 @@
 # imports test
 import random
 from cfg.cfg import *
-from Armor import *
+from Armor.armor import *
 from boss.simple_boss import *
 print(boss_health)
 # vars
@@ -20,11 +20,7 @@ print(f"Version: " + version)
 inpt_1 = input("Would you like to recive an starter kit (y / n): ")
 answer_1 = inpt_1.lower()
 if answer_1 == "y":
-    armor_negitive = 1.2
-    armor_boots = "Starter boots"
-    armor_legs = "Starter legs"
-    armor_chestplate = "Starter chestplate"
-    armor_helmet = "Starter helmet"
+    SetArmor("Starter Helmet", "Starter Chestplate", "Starter leggings", "Starter boots", "1.2")
     sword = "Starter sword"
     sword_dmg_boost = 1.5
     print("Starter kit recived")
@@ -48,6 +44,7 @@ while True:
                 boss_inpt1 = input("Options: Attack, Return: ")
                 if boss_inpt1 == "attack":
                     boss_dmg = random.randint(3,5)
+                    # wip
                     boss_dmg_calc = boss_dmg / armor_negitive
                     take_health = player_health / boss_dmg_calc
                     player_health = player_health - take_health
